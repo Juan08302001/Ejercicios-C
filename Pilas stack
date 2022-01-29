@@ -1,0 +1,62 @@
+#include <iostream>
+#include <stack>
+using namespace std;
+int main()
+{
+int opc;
+int B;
+stack <int> s;
+int x;
+do{
+	cout<<"Programa de la pila"<<endl;
+	cout<<"1. Insertar elemento"<<endl;
+	cout<<"2. Eliminar elementos"<<endl;
+	cout<<"3. Mostrar pila"<<endl;
+	cout<<"4. Mostrar cima"<<endl;
+	cout<<"5. salir"<<endl;
+	cin>>opc;
+	switch(opc)
+	{
+	case 1:cout<<"insertar elementos"<<endl;
+	{
+       cout<<"Inserta los datos"<<endl;
+       for(int i=0;i<8;i++)
+       {
+       	cin>>x;
+       	s.push(x);
+	   }
+	}
+	break;
+	case 2:cout<<"eliminar elementos"<<endl;
+	{
+	cout<<"elemento eliminado num: "<<endl;
+	s.push(x);
+	}
+	break;
+	case 3:cout<<"mostrar pila"<<endl;
+	{
+	cout<<"el tamaño es:"<<s.size()<<endl;
+	cout<<"la pila es: "<<endl;
+	    while(!s.empty())
+	{
+		cout<<s.top()<<" ";
+		s.pop();
+	}
+	}	
+	break;
+	case 4:cout<<"mostrar cima"<<endl;
+	{
+	cout<<"la cima es: "<<endl;
+	x=s.top();	
+	cout<<s.top();	
+	}
+	break;	
+	case 5: exit(0);
+	default:cout<<"opcion invalida"<<endl;			
+	}
+ cout<<" si deseas regresar presiona 1"<<endl;
+	cin>>B;
+	system ("cls");
+}while(B==1);
+system("pause");
+}
