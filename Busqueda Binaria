@@ -1,0 +1,82 @@
+#include<iostream>
+#include<conio.h>
+#define MAX 50
+#include<fstream>
+#include <cstdlib>
+using namespace std;
+struct ordenamiento
+{
+  int elem;
+};
+ifstream bin;
+void leerarray(struct ordenamiento a[]);
+void burbuja (int n,struct ordenamiento a[]);
+int binaria(int n,int z,struct ordenamiento []);
+int main()
+{
+int n,pos,z;
+
+struct ordenamiento orden[MAX];
+
+leerarray(orden);
+burbuja (n,orden);
+cout<<"\nIngrese elemento a buscar ";
+cin>>z;
+pos=binaria(n,z,orden);
+if(pos==-1)
+cout<<endl<<"Elemento no se encuentra "<<endl;
+else
+cout<<endl<<"Elemento encontrado en la posicion "<<pos;
+getch();
+}
+void leerarray(struct ordenamiento a[])
+{
+int i,x;
+string bus;
+bin.open("hola.txt",ios::in);
+if (bin.fail()) 
+ {  
+	cout<<"No se tuvo acceso al archivo"<<endl;
+ } 
+ else 
+ {
+ 	while (!bin.eof())
+ 	{
+ 		getline(bin,bus);
+ 	    cout<<bus<<endl;
+ 	    a[i].elem=std::atoi(bus.c_str());
+ 	   	i++;
+	}
+	
+ }
+  
+}
+void burbuja (int n,struct ordenamiento a[])
+{
+  int i,j;
+  struct ordenamiento temp;
+  for(i=1;i<15;i++)
+  for(j=15-1;j>=i;j--)
+  if(a[j-1].elem >a[j].elem)
+  {
+   temp=a[j-1];
+   a[j-1]=a[j];
+   a[j]=temp;
+  }
+}
+
+int binaria(int n,int z,struct ordenamiento a[] )
+{
+  int mitad, izq, der;
+  izq=0;der=15-1;
+  while(izq<=der)
+  { 
+  mitad=(izq+der)/2 ;
+  if(z>a[mitad].elem)izq=mitad+1;
+  else
+  if (z<a[mitad].elem)der=mitad-1;
+  else 
+  return mitad;
+  }
+  return -1;
+}
