@@ -1,0 +1,20 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+int main() {
+string s;
+ifstream f("hola.txt");//aqui se pone el nombre del archivo de texto
+int cont = 1;
+string num;
+cout<<"Ingresa el numero que deseas buscar :";
+cin>>num;
+while( !f.eof() ) {
+getline(f, s );
+if(s == num){
+cout<<"El numero "<<num<<" esta en la posicion :"<<cont;
+break;
+}
+cont++;
+}
+return 0;
+}
