@@ -1,0 +1,87 @@
+#include <iostream>
+#include <list>
+using namespace std;
+int main()
+{
+int opc;
+int B;
+list <int> s;
+int x,y;
+do{
+	cout<<"Programa de la pila"<<endl;
+	cout<<"1. Insertar elementos a la lista por el frente"<<endl;
+	cout<<"2. Insertar elementos a la lista por el final"<<endl;
+	cout<<"3. Mostrar elementos de la lista"<<endl;
+	cout<<"4. Mostrar el elementos al frente"<<endl;
+    cout<<"5. Mostrar el elemento al final"<<endl;
+    cout<<"6. Eliminar un elemento al frente"<<endl;
+	cout<<"7. Eliminar un elemento al final"<<endl;
+	cout<<"8. Eliminar todos los elementos de la lista"<<endl;
+	cout<<"9. salir"<<endl;
+	cin>>opc;
+	switch(opc)
+	{
+	case 1:cout<<"Insertar elementos a la lista por el frente:"<<endl;
+	{
+	  cin>>x;
+      s.push_front(x); 
+	}
+	break;
+	case 2:cout<<"Insertar elementos a la lista por el final:"<<endl;
+	{
+		cin>>y;
+		s.push_back(y);
+	}
+	break;
+	case 3:cout<<"Mostrar elementos de la lista:"<<endl;
+	{
+	list<int>::iterator it = s.begin();
+    while( it != s.end() )
+    {
+      cout << *it++ << endl;
+    }	
+	}	
+	break;
+	case 4:cout<<"Mostrar el elementos al frente:"<<endl;
+	{
+	 cout<<"El frente es:"<<endl;
+	 
+	 x=s.front();
+	 cout<<s.front();	
+   
+	}
+	break;
+	case 5:cout<<"Mostrar el elemento al final:"<<endl;
+	{
+	  cout<<"El final es"<<endl;
+	  y=s.back();
+	  cout<<s.back();
+	}
+	break;
+    case 6:cout<<"Eliminar un elemento al frente:"<<endl;
+	{
+	  cout<<"Elemento eliminado"<<endl;
+	  s.push_front(x);
+	}
+	break;
+	case 7:cout<<"Eliminar un elemento al final:"<<endl;
+	{
+	  cout<<"Elemento eliminado"<<endl;
+	  s.pop_back();
+	}
+	break;
+	case 8:cout<<"Eliminar todos los elementos de la lista:"<<endl;
+	{
+	  cout<<"elemento eliminado "<<endl;
+	  s.clear();
+	}
+	break;	
+	case 9: exit(0);
+	default:cout<<"opcion invalida"<<endl;			
+	}
+ cout<<" si deseas regresar presiona 1"<<endl;
+	cin>>B;
+	system ("cls");
+}while(B==1);
+system("pause");
+}
